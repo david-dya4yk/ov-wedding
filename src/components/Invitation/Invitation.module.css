@@ -1,0 +1,74 @@
+.section {
+  position: relative;
+  background: var(--color-cream);
+  padding: var(--space-section) var(--space-gutter);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  max-width: 47.5rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-weight: 300;
+  font-size: var(--step-h2);
+  color: var(--color-accent);
+  line-height: 1.04;
+  margin-bottom: 1.625rem;
+}
+
+.lead {
+  font-size: var(--step-lead);
+  line-height: 1.7;
+  margin: 2.5rem auto 0;
+  max-width: 37.5rem;
+  color: var(--color-ink-soft);
+  font-style: italic;
+}
+
+.framed {
+  position: relative;
+  margin: 3.25rem auto 0;
+  max-width: 30rem;
+  padding: clamp(5.625rem, 15vw, 8.125rem) clamp(4.125rem, 11vw, 5.375rem);
+}
+
+.ornament {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  background-image: url("/images/ornament.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 24px 40px rgba(73, 9, 27, 0.28));
+  pointer-events: none;
+}
+
+.body {
+  position: relative;
+  font-size: var(--step-body);
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+  text-wrap: pretty;
+}
+
+.signatureIntro {
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--color-gold-text);
+  margin-top: 3.125rem;
+}
+
+.signature {
+  font-family: var(--font-script);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  color: var(--color-accent);
+  line-height: 1.1;
+}

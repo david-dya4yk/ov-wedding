@@ -1,0 +1,124 @@
+.section {
+  position: relative;
+  padding: var(--space-section) var(--space-gutter);
+  color: var(--color-on-dark);
+  background-color: var(--color-maroon);
+  overflow: hidden;
+}
+
+.cornerTopLeft,
+.cornerTopRight,
+.cornerBottomLeft,
+.cornerBottomRight {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  pointer-events: none;
+}
+
+.cornerTopLeft {
+  top: 26px;
+  left: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cornerTopRight {
+  top: 26px;
+  right: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cornerBottomLeft {
+  bottom: 26px;
+  left: 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.cornerBottomRight {
+  bottom: 26px;
+  right: 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.sprigLeft,
+.sprigRight {
+  position: absolute;
+  top: 50%;
+  width: clamp(3.5rem, 9vw, 7rem);
+  aspect-ratio: 1;
+  background-image: url("/images/sprig.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: brightness(0) invert(1);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.sprigLeft {
+  left: clamp(0.875rem, 3vw, 2.75rem);
+  transform: translateY(-50%);
+}
+
+.sprigRight {
+  right: clamp(0.875rem, 3vw, 2.75rem);
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.inner {
+  position: relative;
+  max-width: 47.5rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-weight: 300;
+  font-size: var(--step-h2);
+  color: var(--color-on-dark);
+  line-height: 1.04;
+  margin-bottom: 1.625rem;
+}
+
+.swatches {
+  list-style: none;
+  margin: 3.25rem 0 2.5rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: clamp(2.5rem, 10vw, 5.625rem);
+}
+
+.swatchItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.swatch {
+  width: clamp(5.625rem, 18vw, 7.5rem);
+  height: clamp(5.625rem, 18vw, 7.5rem);
+  border-radius: 50%;
+  border: 1px solid rgba(201, 162, 95, 0.5);
+}
+
+.swatchLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: var(--step-label);
+  padding-left: 0.3em;
+}
+
+.note {
+  font-size: var(--step-body);
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 35rem;
+  color: var(--color-on-dark-soft);
+  font-style: italic;
+}

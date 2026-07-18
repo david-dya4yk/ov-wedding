@@ -1,0 +1,43 @@
+:root {
+  --color-cream: #fffdf5;
+  --color-cream-panel: #f7f0e1;
+  --color-cream-field: #fffaf0;
+  --color-dark: rgba(73, 9, 27, 0.85);
+  --color-maroon: rgba(73, 9, 27, 0.85);
+
+  --color-accent: rgba(73, 9, 27, 0.85);
+  --color-ink: #33291d;
+  --color-ink-soft: #4a3a29;
+  --color-ink-muted: #5f5142;
+
+  --color-gold-text: rgba(73, 9, 27, 0.85);
+  --color-gold-line: #b0894f;
+  --color-gold-line-dark: #c9a25f;
+
+  --color-on-dark: #fffdf5;
+  --color-on-dark-soft: #fffdf5;
+  --color-on-dark-link: #d9b878;
+
+  --color-error: #8e2b38;
+
+  --border-gold: rgba(200, 164, 110, 0.6);
+  --border-gold-inner: rgba(200, 164, 110, 0.35);
+  --border-brown: rgba(107, 66, 38, 0.35);
+  --border-gold-warm: rgba(176, 137, 79, 0.35);
+
+  --font-serif:
+    var(--font-cormorant), "Cormorant Garamond", Georgia, "Times New Roman",
+    serif;
+  --font-script: var(--font-script-display), "Blosta", cursive;
+
+  --step-display: clamp(3.625rem, 12vw, 8.25rem);
+  --step-h2: clamp(2.5rem, 6.6vw, 4.875rem);
+  --step-lead: clamp(1.1875rem, 2.4vw, 1.625rem);
+  --step-body: clamp(1.125rem, 2.2vw, 1.375rem);
+  --step-label: 1rem;
+
+  --space-section: clamp(4.875rem, 12vw, 9.375rem);
+  --space-gutter: 1.5rem;
+
+  --texture-paper: url("/images/texture.jpg");
+}

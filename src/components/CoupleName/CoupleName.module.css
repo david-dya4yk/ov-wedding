@@ -1,0 +1,8 @@
+.ampersand {
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.5em;
+  vertical-align: 0.16em;
+  padding-inline: 0.08em;
+}

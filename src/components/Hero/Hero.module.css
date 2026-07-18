@@ -1,0 +1,141 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: var(--color-dark);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: #2f2114;
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-position: center 38%;
+  filter: sepia(0.42) saturate(0.9) brightness(0.74);
+  animation: kenBurns 18s ease-in-out infinite alternate;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgba(40, 28, 16, 0.25),
+    rgba(28, 18, 10, 0.68)
+  );
+}
+
+.inner {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+}
+
+.arch {
+  position: relative;
+  width: min(88vw, 35rem);
+  min-height: min(84svh, 45rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(2.75rem, 7vw, 4.875rem) clamp(1.75rem, 6vw, 3.75rem);
+  border: 1px solid var(--border-gold);
+  border-radius: 17.5rem 17.5rem 0.625rem 0.625rem;
+}
+
+.archInner {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid var(--border-gold-inner);
+  border-radius: 16.875rem 16.875rem 0.375rem 0.375rem;
+  pointer-events: none;
+}
+
+.monogram {
+  display: block;
+  color: var(--color-on-dark);
+  margin-bottom: clamp(1rem, 3vw, 1.625rem);
+  animation: float 6s ease-in-out infinite;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 400;
+}
+
+.title:focus-visible {
+  outline: none;
+}
+
+.names {
+  font-family: var(--font-script);
+  color: #fbf5e8;
+  font-size: var(--step-display);
+  line-height: 0.85;
+  text-shadow: 0 6px 34px rgba(0, 0, 0, 0.45);
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: clamp(1.25rem, 3vw, 1.875rem);
+  color: var(--color-on-dark-soft);
+  font-size: clamp(0.9375rem, 2vw, 1.3125rem);
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+}
+
+.rule {
+  width: 34px;
+  height: 1px;
+  background: rgba(200, 164, 110, 0.7);
+}
+
+.scrollCue {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-on-dark-soft);
+  font-size: 1.875rem;
+  line-height: 1;
+  animation: bob 2.6s ease-in-out infinite;
+}
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 9px);
+  }
+}

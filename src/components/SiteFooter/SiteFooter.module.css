@@ -1,0 +1,27 @@
+.footer {
+  padding: 3.75rem var(--space-gutter);
+  text-align: center;
+  color: var(--color-on-dark);
+  background-color: var(--color-maroon);
+}
+
+.monogram {
+  display: inline-block;
+  color: var(--color-on-dark);
+  opacity: 0.85;
+}
+
+.names {
+  font-family: var(--font-script);
+  font-size: 2.625rem;
+  line-height: 1.2;
+  margin-top: 0.5rem;
+}
+
+.date {
+  letter-spacing: 0.3em;
+  padding-left: 0.3em;
+  font-size: var(--step-label);
+  margin-top: 0.5rem;
+  color: var(--color-gold-line-dark);
+}

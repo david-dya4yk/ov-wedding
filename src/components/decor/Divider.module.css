@@ -1,0 +1,10 @@
+.divider {
+  display: block;
+  margin-inline: auto;
+  color: var(--color-gold-line);
+}
+
+.dividerDark {
+  composes: divider;
+  color: var(--color-gold-line-dark);
+}

@@ -1,0 +1,95 @@
+.section {
+  position: relative;
+  background: var(--color-cream);
+  padding: clamp(4.375rem, 10vw, 7.5rem) var(--space-gutter);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  max-width: 51.25rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: var(--step-label);
+  font-weight: 400;
+  color: var(--color-gold-text);
+  padding-left: 0.42em;
+  margin-bottom: 1.625rem;
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(0.25rem, 2vw, 1.25rem);
+}
+
+.unitRow {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.25rem, 2vw, 1.25rem);
+}
+
+.separator {
+  font-weight: 300;
+  font-size: clamp(2.5rem, 9vw, 4.25rem);
+  color: rgba(73, 9, 27, 0.35);
+  line-height: 1;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: clamp(2.75rem, 12vw, 5.375rem);
+}
+
+.value {
+  font-weight: 300;
+  font-size: clamp(2.5rem, 9vw, 4.25rem);
+  color: var(--color-accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.label {
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: var(--step-label);
+  color: var(--color-gold-text);
+  margin-top: 0.625rem;
+  padding-left: 0.24em;
+}
+
+.labelSizer {
+  visibility: hidden;
+}
+
+.labelText {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 30rem) {
+  .label {
+    letter-spacing: 0.02em;
+    padding-left: 0.02em;
+  }
+
+  .separator {
+    display: none;
+  }
+}
