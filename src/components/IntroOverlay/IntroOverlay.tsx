@@ -10,7 +10,7 @@ const INTRO_VIDEO_SRC = "/video/intro.mp4";
 const INTRO_POSTER_SRC = "/images/intro-poster.jpg";
 const MAX_INTRO_MS = 9000;
 const EXIT_MS = 1400;
-const CAPTION_LEAD_S = 2;
+const CAPTION_LEAD_S = 1;
 
 export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
   const openButtonRef = useRef<HTMLButtonElement>(null);

@@ -2,7 +2,8 @@
   position: relative;
   background: var(--color-cream);
   padding: var(--space-section) var(--space-gutter);
-  overflow: hidden;
+  overflow: clip;
+  overflow-clip-margin: 60px;
 }
 
 .inner {
@@ -31,7 +32,7 @@
 
 .framed {
   position: relative;
-  margin: 3.25rem auto 0;
+  margin: 3.25rem auto 2.5rem;
   max-width: 30rem;
   padding: clamp(5.625rem, 15vw, 8.125rem) clamp(4.125rem, 11vw, 5.375rem);
 }

@@ -8,10 +8,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: clip;
   font-family: var(--font-serif);
   font-weight: 400;
   color: var(--color-ink);
