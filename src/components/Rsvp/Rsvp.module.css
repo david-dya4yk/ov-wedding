@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-weight: 300;
+  font-weight: 500;
   font-size: var(--step-h2);
   color: var(--color-accent);
   line-height: 1.04;
@@ -22,7 +22,7 @@
 
 .deadline {
   font-size: var(--step-body);
-  line-height: 1.65;
+  line-height: 1.55;
   margin-top: 1.25rem;
   color: var(--color-ink-soft);
 }
@@ -36,7 +36,9 @@
   position: relative;
   margin-top: 2.75rem;
   padding: clamp(1.875rem, 5vw, 2.75rem);
-  background: var(--color-cream-panel);
+  background: rgba(247, 240, 225, 0.4);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--border-gold-warm);
 }
 
@@ -71,6 +73,7 @@
   text-transform: uppercase;
   letter-spacing: 0.24em;
   font-size: var(--step-label);
+  font-weight: 500;
   color: var(--color-gold-text);
   padding: 0 0 0.25rem;
 }
@@ -306,7 +309,7 @@
 
 .successText {
   font-size: 1.25rem;
-  line-height: 1.6;
+  line-height: 1.5;
   margin-top: 1rem;
   color: var(--color-ink-soft);
 }

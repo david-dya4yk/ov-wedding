@@ -16,7 +16,7 @@
   text-transform: uppercase;
   letter-spacing: 0.42em;
   font-size: var(--step-label);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-gold-text);
   padding-left: 0.42em;
   margin-bottom: 1.625rem;
@@ -50,7 +50,7 @@
 }
 
 .value {
-  font-weight: 300;
+  font-weight: 400;
   font-size: clamp(2.5rem, 9vw, 4.25rem);
   color: var(--color-accent);
   line-height: 1;
@@ -66,6 +66,7 @@
   text-transform: uppercase;
   letter-spacing: 0.24em;
   font-size: var(--step-label);
+  font-weight: 500;
   color: var(--color-gold-text);
   margin-top: 0.625rem;
   padding-left: 0.24em;

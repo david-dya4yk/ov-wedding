@@ -21,9 +21,10 @@ export function Venue(): JSX.Element {
 
           <Reveal delayMs={120}>
             <p className={styles.body}>
-              Святкування відбудеться в ресторані «Білий Дім» с. Магала Чекаємо
-              на вас у затишній атмосфері, щоб разом розділити цей особливий
-              день.
+              Святкування відбудеться в ресторані «Білий Дім» с. Магала
+              <br />
+              Чекаємо на вас у затишній атмосфері, щоб разом розділити цей
+              особливий день.
             </p>
             <p className={styles.linkRow}>
               <ExternalLink href={wedding.mapUrl} className={styles.mapLink}>

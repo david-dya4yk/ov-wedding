@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-weight: 300;
+  font-weight: 500;
   font-size: var(--step-h2);
   color: var(--color-accent);
   line-height: 1.04;
@@ -22,7 +22,7 @@
 
 .lead {
   font-size: var(--step-lead);
-  line-height: 1.7;
+  line-height: 1.55;
   margin: 2.5rem auto 0;
   max-width: 37.5rem;
   color: var(--color-ink-soft);
@@ -54,7 +54,7 @@
 .body {
   position: relative;
   font-size: var(--step-body);
-  line-height: 1.75;
+  line-height: 1.6;
   color: var(--color-ink-soft);
   text-wrap: pretty;
 }

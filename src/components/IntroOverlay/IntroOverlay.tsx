@@ -10,6 +10,7 @@ const INTRO_VIDEO_SRC = "/video/intro.mp4";
 const INTRO_POSTER_SRC = "/images/intro-poster.jpg";
 const MAX_INTRO_MS = 9000;
 const EXIT_MS = 1400;
+const CAPTION_LEAD_S = 2;
 
 export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
   const openButtonRef = useRef<HTMLButtonElement>(null);
@@ -20,7 +21,20 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
   const reducedMotion = usePrefersReducedMotion();
   const [playing, setPlaying] = useState(false);
   const [closing, setClosing] = useState(false);
+  const [showCaption, setShowCaption] = useState(false);
   const [videoUsable, setVideoUsable] = useState(true);
+
+  const handleTimeUpdate = useCallback(() => {
+    const video = videoRef.current;
+    if (video === null || !Number.isFinite(video.duration)) {
+      return;
+    }
+    const rate = video.playbackRate || 1;
+    const remainingRealSeconds = (video.duration - video.currentTime) / rate;
+    if (remainingRealSeconds <= CAPTION_LEAD_S) {
+      setShowCaption(true);
+    }
+  }, []);
 
   const finish = useCallback(() => {
     if (isFinishingRef.current) {
@@ -102,6 +116,7 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
         preload="auto"
         aria-hidden="true"
         tabIndex={-1}
+        onTimeUpdate={handleTimeUpdate}
         onEnded={finish}
         onError={() => {
           setVideoUsable(false);
@@ -122,7 +137,7 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
 
       <div
         className={styles.caption}
-        data-visible={playing ? "true" : "false"}
+        data-visible={showCaption ? "true" : "false"}
         aria-hidden="true"
       >
         <p className={styles.captionNames}>

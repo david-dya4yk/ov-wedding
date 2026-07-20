@@ -2,15 +2,15 @@
   --color-cream: #fffdf5;
   --color-cream-panel: #f7f0e1;
   --color-cream-field: #fffaf0;
-  --color-dark: rgba(73, 9, 27, 0.85);
-  --color-maroon: rgba(73, 9, 27, 0.85);
+  --color-dark: #6c1622;
+  --color-maroon: #6c1622;
 
-  --color-accent: rgba(73, 9, 27, 0.85);
+  --color-accent: #6c1622;
   --color-ink: #33291d;
   --color-ink-soft: #4a3a29;
   --color-ink-muted: #5f5142;
 
-  --color-gold-text: rgba(73, 9, 27, 0.85);
+  --color-gold-text: #6c1622;
   --color-gold-line: #b0894f;
   --color-gold-line-dark: #c9a25f;
 
@@ -18,7 +18,7 @@
   --color-on-dark-soft: #fffdf5;
   --color-on-dark-link: #d9b878;
 
-  --color-error: #8e2b38;
+  --color-error: #6c1622;
 
   --border-gold: rgba(200, 164, 110, 0.6);
   --border-gold-inner: rgba(200, 164, 110, 0.35);

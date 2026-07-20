@@ -2,6 +2,9 @@
   position: relative;
   min-height: 100svh;
   background-color: var(--color-maroon);
+  background-image: url("/images/venue-pattern.jpg");
+  background-size: cover;
+  background-position: center;
   padding: var(--space-section) var(--space-gutter);
   overflow: hidden;
 }
@@ -19,11 +22,11 @@
 .arch {
   position: relative;
   width: 100%;
-  min-height: min(58svh, 34rem);
+  min-height: min(84svh, 45rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(2.75rem, 7vw, 4.875rem) clamp(1.5rem, 5vw, 3.5rem);
+  padding: clamp(4rem, 12vw, 7rem) clamp(2.5rem, 8vw, 5rem);
   border-radius: 17.5rem 17.5rem 0.625rem 0.625rem;
   text-align: center;
   color: var(--color-ink);
@@ -39,29 +42,29 @@
 .archInner {
   position: absolute;
   inset: 12px;
-  border: 1px solid rgba(107, 66, 38, 0.28);
+  border: 1px solid var(--color-gold-line);
   border-radius: 16.75rem 16.75rem 0.375rem 0.375rem;
   pointer-events: none;
 }
 
 .title {
-  font-weight: 300;
-  font-size: var(--step-h2);
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   color: var(--color-accent);
   line-height: 1.04;
-  margin-bottom: 1.625rem;
+  margin-bottom: 2rem;
 }
 
 .body {
   font-size: var(--step-body);
-  line-height: 1.7;
-  margin: 2.25rem auto 0;
-  max-width: 33.75rem;
+  line-height: 1.55;
+  margin: 3rem auto 0;
+  max-width: 24rem;
   color: var(--color-ink-soft);
 }
 
 .linkRow {
-  margin-top: 1.125rem;
+  margin-top: 2.25rem;
 }
 
 .mapLink {

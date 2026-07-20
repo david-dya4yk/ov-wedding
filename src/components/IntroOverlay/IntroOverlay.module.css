@@ -78,7 +78,7 @@
   text-align: center;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 1.2s ease 2.8s;
+  transition: opacity 1.1s ease;
 }
 
 .caption[data-visible="true"] {
