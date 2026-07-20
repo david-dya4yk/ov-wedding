@@ -8,6 +8,7 @@ export interface ProgrammeItem {
 }
 
 const MAP_URL = "https://maps.app.goo.gl/MEykCFdQSD1bWdCQ9";
+const CHURCH_MAP_URL = "https://maps.app.goo.gl/8Q4rqMvN7nZzSDSD8";
 
 export const wedding = {
   coupleName: "Oleh & Victoria",
@@ -28,7 +29,7 @@ export const programme: readonly ProgrammeItem[] = [
     title: "Таїнство вінчання",
     place: "Храм Трьох Святителів",
     address: "вул. Коцюбинського, 2",
-    mapUrl: MAP_URL,
+    mapUrl: CHURCH_MAP_URL,
   },
   {
     id: "benket",
