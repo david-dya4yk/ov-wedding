@@ -33,7 +33,7 @@ export const programme: readonly ProgrammeItem[] = [
   {
     id: "benket",
     time: "14:00",
-    title: "Святковий бенкет",
+    title: "Збір гостей",
     place: "Ресторан «Білий Дім»",
     address: "с. Магала",
     mapUrl: MAP_URL,
@@ -51,8 +51,8 @@ export const programme: readonly ProgrammeItem[] = [
 export const dressCodeColors: readonly {
   readonly id: string;
   readonly label: string;
-  readonly swatch: string;
+  readonly image: string;
 }[] = [
-  { id: "white", label: "Білий", swatch: "#f4e9d2" },
-  { id: "black", label: "Чорний", swatch: "#181310" },
+  { id: "black", label: "чорний", image: "/images/stroke-black.png" },
+  { id: "white", label: "білий", image: "/images/stroke-white.png" },
 ];

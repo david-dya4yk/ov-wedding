@@ -7,6 +7,7 @@ import { usePrefersReducedMotion } from "@/lib/client-hooks";
 import styles from "./IntroOverlay.module.css";
 
 const INTRO_VIDEO_SRC = "/video/intro.mp4";
+const INTRO_POSTER_SRC = "/images/intro-poster.jpg";
 const MAX_INTRO_MS = 9000;
 const EXIT_MS = 1400;
 
@@ -95,9 +96,10 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
         ref={videoRef}
         className={styles.video}
         src={INTRO_VIDEO_SRC}
+        poster={INTRO_POSTER_SRC}
         muted
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
         tabIndex={-1}
         onEnded={finish}

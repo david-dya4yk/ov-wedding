@@ -1,124 +1,126 @@
 .section {
   position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
   padding: var(--space-section) var(--space-gutter);
-  color: var(--color-on-dark);
-  background-color: var(--color-maroon);
   overflow: hidden;
 }
 
-.cornerTopLeft,
-.cornerTopRight,
-.cornerBottomLeft,
-.cornerBottomRight {
+.backdrop {
   position: absolute;
-  width: 64px;
-  height: 64px;
-  pointer-events: none;
+  inset: 0;
+  background-color: #2b1e12;
+  background-image: url("/images/venue.jpg");
+  background-size: cover;
+  background-position: center 42%;
+  filter: sepia(0.3) saturate(0.85) brightness(0.62);
+  animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
-.cornerTopLeft {
-  top: 26px;
-  left: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.cornerTopRight {
-  top: 26px;
-  right: 26px;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-right: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.cornerBottomLeft {
-  bottom: 26px;
-  left: 26px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.cornerBottomRight {
-  bottom: 26px;
-  right: 26px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  border-right: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.sprigLeft,
-.sprigRight {
+.scrim {
   position: absolute;
-  top: 50%;
-  width: clamp(3.5rem, 9vw, 7rem);
-  aspect-ratio: 1;
-  background-image: url("/images/sprig.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: brightness(0) invert(1);
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-.sprigLeft {
-  left: clamp(0.875rem, 3vw, 2.75rem);
-  transform: translateY(-50%);
-}
-
-.sprigRight {
-  right: clamp(0.875rem, 3vw, 2.75rem);
-  transform: translateY(-50%) scaleX(-1);
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 42%,
+    rgba(40, 28, 16, 0.2),
+    rgba(28, 18, 10, 0.66)
+  );
 }
 
 .inner {
   position: relative;
-  max-width: 47.5rem;
+  width: 100%;
+  max-width: 34rem;
   margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  padding: clamp(2.25rem, 6vw, 3.75rem) clamp(1.75rem, 5vw, 3rem);
   text-align: center;
+  color: var(--color-ink);
+  background-color: #eee9e5;
+  box-shadow:
+    0 30px 60px rgba(28, 18, 10, 0.45),
+    0 2px 0 rgba(255, 255, 255, 0.4) inset;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: clamp(0.75rem, 2vw, 1.125rem);
+  border: 1px solid rgba(107, 66, 38, 0.22);
+  pointer-events: none;
 }
 
 .title {
   font-weight: 300;
   font-size: var(--step-h2);
-  color: var(--color-on-dark);
+  color: var(--color-accent);
   line-height: 1.04;
-  margin-bottom: 1.625rem;
+  margin-bottom: 1.5rem;
+}
+
+.lead {
+  font-size: var(--step-body);
+  line-height: 1.6;
+  margin: 2rem auto 0;
+  max-width: 26rem;
+  color: var(--color-ink-soft);
+  font-style: italic;
 }
 
 .swatches {
   list-style: none;
-  margin: 3.25rem 0 2.5rem;
+  margin: 2.5rem 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  gap: clamp(2.5rem, 10vw, 5.625rem);
+  flex-direction: column;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
 }
 
 .swatchItem {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  gap: clamp(0.5rem, 3vw, 1.75rem);
 }
 
-.swatch {
-  width: clamp(5.625rem, 18vw, 7.5rem);
-  height: clamp(5.625rem, 18vw, 7.5rem);
-  border-radius: 50%;
-  border: 1px solid rgba(201, 162, 95, 0.5);
+.stroke {
+  width: clamp(8rem, 34vw, 11rem);
+  height: auto;
 }
 
 .swatchLabel {
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  font-size: var(--step-label);
-  padding-left: 0.3em;
+  min-width: 4.5em;
+  text-align: left;
+  font-style: italic;
+  font-size: clamp(1.375rem, 4vw, 1.875rem);
+  color: var(--color-ink);
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--color-accent);
+  line-height: 1.1;
+  margin-top: 2.5rem;
 }
 
 .note {
-  font-size: var(--step-body);
-  line-height: 1.7;
-  margin: 0 auto;
-  max-width: 35rem;
-  color: var(--color-on-dark-soft);
-  font-style: italic;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  margin: 0.75rem auto 0;
+  max-width: 24rem;
+  color: var(--color-ink-muted);
+}
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
 }
