@@ -36,7 +36,11 @@ export default function RootLayout({
   children: ReactNode;
 }): JSX.Element {
   return (
-    <html lang="uk" className={`${cormorant.variable} ${script.variable}`}>
+    <html
+      lang="uk"
+      className={`${cormorant.variable} ${script.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: NO_FLASH_SCRIPT }} />
       </head>

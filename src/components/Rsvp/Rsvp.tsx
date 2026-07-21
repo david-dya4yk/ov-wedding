@@ -12,9 +12,10 @@ type Attendance = "yes" | "no";
 interface Errors {
   readonly guest: string | null;
   readonly attendance: string | null;
+  readonly submit: string | null;
 }
 
-const NO_ERRORS: Errors = { guest: null, attendance: null };
+const NO_ERRORS: Errors = { guest: null, attendance: null, submit: null };
 
 export function Rsvp(): JSX.Element {
   const baseId = useId();
@@ -25,8 +26,10 @@ export function Rsvp(): JSX.Element {
   const [guests, setGuests] = useState<string[]>([""]);
   const [attendance, setAttendance] = useState<Attendance | null>(null);
   const [note, setNote] = useState("");
+  const [website, setWebsite] = useState("");
   const [errors, setErrors] = useState<Errors>(NO_ERRORS);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const guestErrorId = `${baseId}-guest-error`;
   const attendanceErrorId = `${baseId}-attendance-error`;
@@ -76,6 +79,7 @@ export function Rsvp(): JSX.Element {
           attendance === null
             ? "Оберіть, будь ласка, чи зможете ви бути присутні."
             : null,
+        submit: null,
       };
 
       if (nextErrors.guest !== null || nextErrors.attendance !== null) {
@@ -93,12 +97,34 @@ export function Rsvp(): JSX.Element {
       }
 
       setErrors(NO_ERRORS);
-      setSubmitted(true);
-      window.requestAnimationFrame(() => {
-        successRef.current?.focus();
-      });
+      setSubmitting(true);
+
+      fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ guests, attendance, note, website }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("request-failed");
+          }
+          setSubmitted(true);
+          window.requestAnimationFrame(() => {
+            successRef.current?.focus();
+          });
+        })
+        .catch(() => {
+          setErrors((current) => ({
+            ...current,
+            submit:
+              "Не вдалося надіслати форму. Спробуйте ще раз трохи пізніше.",
+          }));
+        })
+        .finally(() => {
+          setSubmitting(false);
+        });
     },
-    [attendance, guests],
+    [attendance, guests, note, website],
   );
 
   const isGroup = guests.length >= 2;
@@ -135,6 +161,23 @@ export function Rsvp(): JSX.Element {
           <div className={styles.panel}>
             <div className={styles.panelInner} aria-hidden="true" />
             <form className={styles.form} onSubmit={handleSubmit} noValidate>
+              <div className="sr-only" aria-hidden="true">
+                <label htmlFor={`${baseId}-website`}>
+                  Не заповнюйте це поле
+                </label>
+                <input
+                  id={`${baseId}-website`}
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(event) => {
+                    setWebsite(event.target.value);
+                  }}
+                />
+              </div>
+
               <fieldset className={styles.fieldset}>
                 <legend className={styles.legend}>Гості</legend>
 
@@ -298,8 +341,18 @@ export function Rsvp(): JSX.Element {
                 />
               </div>
 
-              <button type="submit" className={styles.submitButton}>
-                Надіслати підтвердження
+              {errors.submit === null ? null : (
+                <p className={styles.error} role="alert">
+                  {errors.submit}
+                </p>
+              )}
+
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={submitting}
+              >
+                {submitting ? "Надсилаємо…" : "Надіслати підтвердження"}
               </button>
             </form>
           </div>
