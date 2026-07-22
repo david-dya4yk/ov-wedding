@@ -1,8 +1,9 @@
 import { prisma } from "@/lib/prisma";
-
-const MAX_GUESTS = 10;
-const MAX_NAME_LENGTH = 200;
-const MAX_NOTE_LENGTH = 2000;
+import {
+  MAX_NAME_LENGTH,
+  MAX_NOTE_LENGTH,
+  sanitizeGuests,
+} from "@/lib/rsvp-limits";
 
 interface RsvpPayload {
   readonly guests: readonly string[];
@@ -40,10 +41,7 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json({ ok: true }, { status: 201 });
   }
 
-  const guests = body.guests
-    .map((guest) => guest.trim())
-    .filter((guest) => guest !== "")
-    .slice(0, MAX_GUESTS);
+  const guests = sanitizeGuests(body.guests);
 
   if (guests.length === 0 || (guests[0]?.length ?? 0) > MAX_NAME_LENGTH) {
     return Response.json(

@@ -221,3 +221,104 @@
   margin-top: 0.15rem;
   flex-shrink: 0;
 }
+
+.cardActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.editButton,
+.deleteButton,
+.saveButton,
+.cancelButton,
+.addGuestButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+}
+
+.deleteButton {
+  color: #b3261e;
+  border-color: #f3c6c1;
+}
+
+.saveButton {
+  color: #fff;
+  background: #6c1622;
+  border-color: #6c1622;
+}
+
+.cancelButton {
+  color: #444;
+}
+
+.addGuestButton {
+  align-self: flex-start;
+  margin: 0.3rem 0 0.5rem;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.editInput,
+.editTextarea {
+  flex: 1;
+  min-width: 0;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: #999;
+  cursor: pointer;
+  padding: 0.1rem;
+  flex-shrink: 0;
+}
+
+.editChoices {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+}
+
+.editChoice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.editError {
+  color: #b3261e;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.editActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}

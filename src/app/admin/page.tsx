@@ -1,15 +1,9 @@
 import type { JSX } from "react";
 import Link from "next/link";
-import {
-  CalendarClock,
-  CheckCircle2,
-  MessageSquareText,
-  User,
-  Users,
-  XCircle,
-} from "lucide-react";
+import { CalendarClock, CheckCircle2, Users, XCircle } from "lucide-react";
 import { cx } from "@/lib/cx";
 import { prisma } from "@/lib/prisma";
+import { SubmissionCard } from "./SubmissionCard";
 import styles from "./admin.module.css";
 
 export const dynamic = "force-dynamic";
@@ -137,55 +131,14 @@ export default async function AdminPage({
       ) : (
         <ul className={styles.list}>
           {visibleSubmissions.map((submission) => (
-            <li key={submission.id} className={styles.card}>
-              <div className={styles.cardTop}>
-                <span
-                  className={
-                    submission.attendance === "YES"
-                      ? styles.badgeYes
-                      : styles.badgeNo
-                  }
-                >
-                  {submission.attendance === "YES" ? (
-                    <CheckCircle2 size={16} aria-hidden="true" />
-                  ) : (
-                    <XCircle size={16} aria-hidden="true" />
-                  )}
-                  {submission.attendance === "YES" ? "Прийде" : "Не прийде"}
-                </span>
-                <span className={styles.date}>
-                  <CalendarClock size={14} aria-hidden="true" />
-                  {formatDate(submission.createdAt)}
-                </span>
-              </div>
-
-              <ul className={styles.guestList}>
-                {submission.guests.map((guest, index) => (
-                  <li
-                    key={`${submission.id}-${String(index)}`}
-                    className={styles.guestRow}
-                  >
-                    <User
-                      size={15}
-                      className={styles.guestIcon}
-                      aria-hidden="true"
-                    />
-                    <span>{guest}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {submission.note === "" ? null : (
-                <div className={styles.note}>
-                  <MessageSquareText
-                    size={16}
-                    className={styles.noteIcon}
-                    aria-hidden="true"
-                  />
-                  <span>{submission.note}</span>
-                </div>
-              )}
-            </li>
+            <SubmissionCard
+              key={submission.id}
+              id={submission.id}
+              guests={submission.guests}
+              attendance={submission.attendance}
+              note={submission.note}
+              dateLabel={formatDate(submission.createdAt)}
+            />
           ))}
         </ul>
       )}
