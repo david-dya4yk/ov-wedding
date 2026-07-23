@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { JSX, ReactNode } from "react";
-import { usePrefersReducedMotion } from "@/lib/client-hooks";
 import { cx } from "@/lib/cx";
 import styles from "./Reveal.module.css";
 
@@ -18,12 +17,11 @@ export function Reveal({
   className,
 }: RevealProps): JSX.Element {
   const ref = useRef<HTMLDivElement>(null);
-  const reducedMotion = usePrefersReducedMotion();
   const [seen, setSeen] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
-    if (node === null || reducedMotion) {
+    if (node === null) {
       return;
     }
 
@@ -43,9 +41,9 @@ export function Reveal({
     return () => {
       observer.disconnect();
     };
-  }, [reducedMotion]);
+  }, []);
 
-  const visible = reducedMotion || seen;
+  const visible = seen;
 
   return (
     <div
