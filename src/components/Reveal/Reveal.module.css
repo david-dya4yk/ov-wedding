@@ -13,10 +13,3 @@
   opacity: 1;
   transform: none;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  :global(html.js) .reveal[data-visible="false"] {
-    opacity: 1;
-    transform: none;
-  }
-}

@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { JSX } from "react";
 import { CoupleName } from "@/components/CoupleName/CoupleName";
-import { usePrefersReducedMotion } from "@/lib/client-hooks";
 import styles from "./IntroOverlay.module.css";
 
 const INTRO_VIDEO_WEBM_SRC = "/video/intro.webm";
@@ -19,7 +18,6 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
   const timeoutRef = useRef<number | null>(null);
   const exitTimeoutRef = useRef<number | null>(null);
   const isFinishingRef = useRef(false);
-  const reducedMotion = usePrefersReducedMotion();
   const [playing, setPlaying] = useState(false);
   const [closing, setClosing] = useState(false);
   const [showCaption, setShowCaption] = useState(false);
@@ -48,14 +46,9 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
       timeoutRef.current = null;
     }
 
-    if (reducedMotion) {
-      onOpen();
-      return;
-    }
-
     setClosing(true);
     exitTimeoutRef.current = window.setTimeout(onOpen, EXIT_MS);
-  }, [onOpen, reducedMotion]);
+  }, [onOpen]);
 
   useEffect(() => {
     openButtonRef.current?.focus();
@@ -91,7 +84,7 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
 
     const video = videoRef.current;
 
-    if (reducedMotion || !videoUsable || video === null) {
+    if (!videoUsable || video === null) {
       finish();
       return;
     }
@@ -103,7 +96,7 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
       finish();
     });
     timeoutRef.current = window.setTimeout(finish, MAX_INTRO_MS);
-  }, [finish, playing, reducedMotion, videoUsable]);
+  }, [finish, playing, videoUsable]);
 
   return (
     <div className={styles.overlay} data-closing={closing ? "true" : "false"}>

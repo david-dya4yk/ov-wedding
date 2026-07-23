@@ -35,10 +35,6 @@ export function useMediaQuery(query: string): boolean {
   );
 }
 
-export function usePrefersReducedMotion(): boolean {
-  return useMediaQuery("(prefers-reduced-motion: reduce)");
-}
-
 function createTicker(intervalMs: number): {
   subscribe: (onChange: () => void) => () => void;
   getSnapshot: () => number;
