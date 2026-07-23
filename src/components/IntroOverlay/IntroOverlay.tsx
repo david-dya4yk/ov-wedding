@@ -6,7 +6,8 @@ import { CoupleName } from "@/components/CoupleName/CoupleName";
 import { usePrefersReducedMotion } from "@/lib/client-hooks";
 import styles from "./IntroOverlay.module.css";
 
-const INTRO_VIDEO_SRC = "/video/intro.mp4";
+const INTRO_VIDEO_WEBM_SRC = "/video/intro.webm";
+const INTRO_VIDEO_MP4_SRC = "/video/intro.mp4";
 const INTRO_POSTER_SRC = "/images/intro-poster.jpg";
 const MAX_INTRO_MS = 9000;
 const EXIT_MS = 1400;
@@ -109,7 +110,6 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
       <video
         ref={videoRef}
         className={styles.video}
-        src={INTRO_VIDEO_SRC}
         poster={INTRO_POSTER_SRC}
         muted
         playsInline
@@ -121,7 +121,10 @@ export function IntroOverlay({ onOpen }: { onOpen: () => void }): JSX.Element {
         onError={() => {
           setVideoUsable(false);
         }}
-      />
+      >
+        <source src={INTRO_VIDEO_WEBM_SRC} type="video/webm" />
+        <source src={INTRO_VIDEO_MP4_SRC} type="video/mp4" />
+      </video>
       <div className={styles.scrim} aria-hidden="true" />
 
       <button
